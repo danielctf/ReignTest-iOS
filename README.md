@@ -1,1 +1,3 @@
-# ReignTest-iOS
+To install run:
+
+pod install
