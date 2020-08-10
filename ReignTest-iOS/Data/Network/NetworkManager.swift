@@ -27,7 +27,8 @@ class NetworkManager {
             parameters: nil,
             encoding: URLEncoding.default,
             headers: nil
-        ).responseJSON { response in
+        ).responseJSON { [weak self] response in
+            guard let self = self else { return }
             switch response.result {
             case .success:
                 self.onSuccess(data: response.data, onCompletion: onCompletion)
