@@ -22,7 +22,7 @@ class PostLocalDataSource: PostLocalDataSourceProtocol {
     }
     
     func getPosts() -> Observable<[Post]> {
-        return manager.getObservableObjects()
+        return manager.getObservableObjects(sortBy: "createdAt")
     }
     
     func deletePost(post: Post) {
