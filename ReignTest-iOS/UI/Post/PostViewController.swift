@@ -21,15 +21,31 @@ class PostViewController: RxViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+        registerPostTableCell()
+        let refreshControl = UIRefreshControl()
+        setPostTableRefreshControl(refreshControl)
+        setRefreshingState(refreshControl)
+        setPostTableItems()
+        setPostTableDeleteListener()
+    }
+    
+    private func registerPostTableCell() {
         postTableView.register(
             UINib(nibName: PostTableViewCell.TAG, bundle: nil),
             forCellReuseIdentifier: PostTableViewCell.TAG
         )
-        
-        let refreshControl = UIRefreshControl()
+    }
+    
+    private func setPostTableRefreshControl(_ refreshControl: UIRefreshControl) {
         refreshControl.addTarget(self, action: #selector(refreshPosts), for: .valueChanged)
         postTableView.refreshControl = refreshControl
-        
+    }
+    
+    @objc private func refreshPosts() {
+        viewModel.refreshPosts()
+    }
+    
+    private func setRefreshingState(_ refreshControl: UIRefreshControl) {
         autoDispose(viewModel.loading.subscribe(onNext: { isLoading in
             if (isLoading) {
                 refreshControl.beginRefreshing()
@@ -37,7 +53,9 @@ class PostViewController: RxViewController {
                 refreshControl.endRefreshing()
             }
         }))
-        
+    }
+    
+    private func setPostTableItems() {
         autoDispose(viewModel.getPosts().bind(to: postTableView.rx.items(
             cellIdentifier: PostTableViewCell.TAG,
             cellType: PostTableViewCell.self
@@ -46,7 +64,9 @@ class PostViewController: RxViewController {
         })
     }
     
-    @objc private func refreshPosts() {
-        viewModel.refreshPosts()
+    private func setPostTableDeleteListener() {
+        autoDispose(postTableView.rx.modelDeleted(Post.self).subscribe(onNext: { post in
+            self.viewModel.deletePost(post: post)
+        }))
     }
 }
