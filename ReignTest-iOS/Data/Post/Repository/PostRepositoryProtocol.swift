@@ -12,6 +12,6 @@ import RxSwift
 protocol PostRepositoryProtocol {
     
     func getPosts() -> Observable<[Post]>
-    func refreshPosts()
+    func refreshPosts(onCompletion: @escaping () -> Void)
     func deletePost(post: Post)
 }

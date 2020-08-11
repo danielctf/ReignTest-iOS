@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RefreshPostsUseCase: UseCase {
+class RefreshPostsUseCase: CompletionUseCase {
     
     private let repository: PostRepositoryProtocol
     
@@ -16,7 +16,10 @@ class RefreshPostsUseCase: UseCase {
         self.repository = repository
     }
     
-    func execute(params: Void? = nil) {
-        return repository.refreshPosts()
+    func execute(onCompletion: @escaping () -> Void) {
+        repository.refreshPosts { [weak self] in
+            guard self != nil else { return }
+            onCompletion()
+        }
     }
 }
