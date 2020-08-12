@@ -30,6 +30,10 @@ class Post: Object, Decodable {
         return storyTitle ?? title
     }
     
+    func getUrl() -> String? {
+        return storyUrl ?? url
+    }
+    
     override static func primaryKey() -> String? {
         return "objectID"
     }

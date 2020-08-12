@@ -12,6 +12,8 @@ import RxSwift
 class PostViewModel {
     
     let loading = PublishSubject<Bool>()
+    let navigateToDetails = PublishSubject<String>()
+    let error = PublishSubject<Void>()
     
     private let getPostsUseCase: GetPostsUseCase
     private let refreshPostsUseCase: RefreshPostsUseCase
@@ -42,5 +44,13 @@ class PostViewModel {
     
     func deletePost(post: Post) {
         deletePostUseCase.execute(params: post)
+    }
+    
+    func postClicked(post: Post) {
+        if let url = post.getUrl() {
+            navigateToDetails.onNext(url)
+        } else {
+            error.onNext(())
+        }
     }
 }

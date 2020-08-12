@@ -20,13 +20,18 @@ class PostViewController: RxViewController {
         self.init(nibName: Self.TAG, bundle: nil)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = Localizable.POSTS
         registerPostTableCell()
         let refreshControl = UIRefreshControl()
         setPostTableRefreshControl(refreshControl)
-        setRefreshingState(refreshControl)
+        setLoadingObserver(refreshControl)
         setPostTableItems()
         setPostTableDeleteListener()
+        setPostTableClickListener()
+        setNavigateToDetailsObserver()
+        setErrorObserver()
     }
     
     private func registerPostTableCell() {
@@ -45,7 +50,7 @@ class PostViewController: RxViewController {
         viewModel.refreshPosts()
     }
     
-    private func setRefreshingState(_ refreshControl: UIRefreshControl) {
+    private func setLoadingObserver(_ refreshControl: UIRefreshControl) {
         autoDispose(viewModel.loading.subscribe(onNext: { isLoading in
             if (isLoading) {
                 refreshControl.beginRefreshing()
@@ -67,6 +72,32 @@ class PostViewController: RxViewController {
     private func setPostTableDeleteListener() {
         autoDispose(postTableView.rx.modelDeleted(Post.self).subscribe(onNext: { post in
             self.viewModel.deletePost(post: post)
+        }))
+    }
+    
+    private func setPostTableClickListener() {
+        autoDispose(postTableView.rx.modelSelected(Post.self).subscribe(onNext: { post in
+            self.postTableView.deselectRow(at: self.postTableView.indexPathForSelectedRow!, animated: true)
+            self.viewModel.postClicked(post: post)
+        }))
+    }
+    
+    private func setNavigateToDetailsObserver() {
+        autoDispose(viewModel.navigateToDetails.subscribe(onNext: { url in
+            let postDetailViewController = PostDetailViewController()
+            postDetailViewController.url = url
+            self.navigationController?.pushViewController(postDetailViewController, animated: true)
+        }))
+    }
+    
+    private func setErrorObserver() {
+        autoDispose(viewModel.error.subscribe(onNext: {
+            AlertDialog.showDialog(
+                title: Localizable.ERROR,
+                message: Localizable.POST_NOT_AVAILABLE,
+                confirmButton: Localizable.OK,
+                viewController: self
+            )
         }))
     }
 }

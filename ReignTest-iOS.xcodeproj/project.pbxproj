@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D4C768E2E362F354FE0F0DAA /* Pods_ReignTest_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 614619DCFDE7C9A59EE444D9 /* Pods_ReignTest_iOS.framework */; };
+		E50BD84C24E476A800BE88F7 /* AlertDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50BD84B24E476A800BE88F7 /* AlertDialog.swift */; };
 		E53A7B1D24E18F9D00755C43 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B1C24E18F9D00755C43 /* AppDelegate.swift */; };
 		E53A7B1F24E18F9D00755C43 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B1E24E18F9D00755C43 /* SceneDelegate.swift */; };
 		E53A7B2624E18F9E00755C43 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E53A7B2524E18F9E00755C43 /* Assets.xcassets */; };
@@ -43,6 +44,8 @@
 		E59BC97624E2D6FD00CB1DB2 /* CompletionUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E59BC97524E2D6FD00CB1DB2 /* CompletionUseCase.swift */; };
 		E5C6B90C24E1E92000BCCA84 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = E5C6B90E24E1E92000BCCA84 /* Localizable.strings */; };
 		E5C6B91224E1F07B00BCCA84 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5C6B91124E1F07B00BCCA84 /* Localizable.swift */; };
+		E5E923DC24E428EA0008B928 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5E923DA24E428EA0008B928 /* PostDetailViewController.swift */; };
+		E5E923DD24E428EA0008B928 /* PostDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E5E923DB24E428EA0008B928 /* PostDetailViewController.xib */; };
 		E7D644C05F2E59322766CCC2 /* Pods_ReignTest_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EB39A7DFFD64683AA5641B5E /* Pods_ReignTest_iOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -62,6 +65,7 @@
 		614619DCFDE7C9A59EE444D9 /* Pods_ReignTest_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReignTest_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1AACF43747639AE10F92FB7 /* Pods-ReignTest-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReignTest-iOS.release.xcconfig"; path = "Target Support Files/Pods-ReignTest-iOS/Pods-ReignTest-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		C3426D25F923458A163D5D37 /* Pods-ReignTest-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReignTest-iOSTests.release.xcconfig"; path = "Target Support Files/Pods-ReignTest-iOSTests/Pods-ReignTest-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
+		E50BD84B24E476A800BE88F7 /* AlertDialog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertDialog.swift; sourceTree = "<group>"; };
 		E53A7B1924E18F9D00755C43 /* ReignTest-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ReignTest-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E53A7B1C24E18F9D00755C43 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E53A7B1E24E18F9D00755C43 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +105,8 @@
 		E59BC97524E2D6FD00CB1DB2 /* CompletionUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionUseCase.swift; sourceTree = "<group>"; };
 		E5C6B90D24E1E92000BCCA84 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		E5C6B91124E1F07B00BCCA84 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		E5E923DA24E428EA0008B928 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
+		E5E923DB24E428EA0008B928 /* PostDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostDetailViewController.xib; sourceTree = "<group>"; };
 		EB39A7DFFD64683AA5641B5E /* Pods_ReignTest_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReignTest_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -142,6 +148,14 @@
 				EB39A7DFFD64683AA5641B5E /* Pods_ReignTest_iOSTests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E50BD84A24E4768D00BE88F7 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E50BD84B24E476A800BE88F7 /* AlertDialog.swift */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 		E53A7B1024E18F9D00755C43 = {
@@ -317,6 +331,8 @@
 		E53A7B7A24E1917F00755C43 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				E50BD84A24E4768D00BE88F7 /* Util */,
+				E5E923D524E428090008B928 /* PostDetail */,
 				E53A7B7C24E1918800755C43 /* Post */,
 			);
 			path = UI;
@@ -349,6 +365,15 @@
 				E5C6B90E24E1E92000BCCA84 /* Localizable.strings */,
 			);
 			path = Localizable;
+			sourceTree = "<group>";
+		};
+		E5E923D524E428090008B928 /* PostDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E5E923DA24E428EA0008B928 /* PostDetailViewController.swift */,
+				E5E923DB24E428EA0008B928 /* PostDetailViewController.xib */,
+			);
+			path = PostDetail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -437,6 +462,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E5C6B90C24E1E92000BCCA84 /* Localizable.strings in Resources */,
+				E5E923DD24E428EA0008B928 /* PostDetailViewController.xib in Resources */,
 				E53A7B2924E18F9E00755C43 /* LaunchScreen.storyboard in Resources */,
 				E53A7B2624E18F9E00755C43 /* Assets.xcassets in Resources */,
 				E53A7B8224E1919B00755C43 /* PostViewController.xib in Resources */,
@@ -546,6 +572,7 @@
 				E53A7B5424E1911400755C43 /* PostLocalDataSource.swift in Sources */,
 				E53A7B6A24E1915700755C43 /* Post.swift in Sources */,
 				E59BC97624E2D6FD00CB1DB2 /* CompletionUseCase.swift in Sources */,
+				E5E923DC24E428EA0008B928 /* PostDetailViewController.swift in Sources */,
 				E5C6B91224E1F07B00BCCA84 /* Localizable.swift in Sources */,
 				E53A7B7524E1916500755C43 /* UseCase.swift in Sources */,
 				E53A7B8624E191A700755C43 /* PostTableViewCell.swift in Sources */,
@@ -562,6 +589,7 @@
 				E53A7B5A24E1911A00755C43 /* PostRepositoryProtocol.swift in Sources */,
 				E53A7B7124E1915D00755C43 /* RefreshPostsUseCase.swift in Sources */,
 				E53A7B6324E1913600755C43 /* NetworkError.swift in Sources */,
+				E50BD84C24E476A800BE88F7 /* AlertDialog.swift in Sources */,
 				E53A7B4224E1909800755C43 /* RxViewController.swift in Sources */,
 				E53A7B4C24E1910400755C43 /* ServerConstants.swift in Sources */,
 				E53A7B6224E1913600755C43 /* EmptyResponseError.swift in Sources */,
