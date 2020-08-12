@@ -16,10 +16,6 @@ class PostViewController: RxViewController {
     
     private let viewModel = PostViewModel()
     
-    convenience init() {
-        self.init(nibName: Self.TAG, bundle: nil)
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Localizable.POSTS
@@ -84,8 +80,7 @@ class PostViewController: RxViewController {
     
     private func setNavigateToDetailsObserver() {
         autoDispose(viewModel.navigateToDetails.subscribe(onNext: { url in
-            let postDetailViewController = PostDetailViewController()
-            postDetailViewController.url = url
+            let postDetailViewController = PostDetailViewController(url: url)
             self.navigationController?.pushViewController(postDetailViewController, animated: true)
         }))
     }

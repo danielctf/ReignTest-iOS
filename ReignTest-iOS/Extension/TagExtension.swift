@@ -19,6 +19,4 @@ extension Tag {
     }
 }
 
-extension UIViewController: Tag {}
-
 extension UITableViewCell: Tag {}

@@ -13,8 +13,17 @@ class PostDetailViewController: UIViewController {
     
     @IBOutlet weak var webView: WKWebView!
     
-    var url: String = ""
-
+    private let url: String
+    
+    init(url: String) {
+        self.url = url
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) is not supported")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = Localizable.POST
