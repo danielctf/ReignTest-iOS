@@ -29,7 +29,7 @@ class DatabaseManager {
         writeObjects(items: [item])
     }
     
-    func getObservableObjects<T: Object>() -> Observable<[T]> {
-        return Observable.array(from: realm.objects(T.self))
+    func getObservableObjects<T: Object>(sortBy sortKey: String) -> Observable<[T]> {
+        return Observable.array(from: realm.objects(T.self).sorted(byKeyPath: sortKey, ascending: false))
     }
 }

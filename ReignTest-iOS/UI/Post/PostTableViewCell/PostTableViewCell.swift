@@ -10,9 +10,14 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     
-    @IBOutlet weak var storyTitle: UILabel!
+    @IBOutlet weak var postTitle: UILabel!
+    @IBOutlet weak var postInformation: UILabel!
     
     func setPost(post: Post) {
-        storyTitle.text = post.getTitle()
+        postTitle.text = post.getTitle() ?? Localizable.NO_TITLE
+        postInformation.text =
+            (post.author ?? Localizable.NO_AUTHOR) +
+            " - " +
+            RelativeDateTimeFormatter().localizedString(for: post.createdAt, relativeTo: Date())
     }
 }

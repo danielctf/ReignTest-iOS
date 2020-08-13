@@ -44,7 +44,14 @@ class NetworkManager {
     ) {
         if let dataAsJson = data {
             do {
-                let dataAsObject = try JSONDecoder().decode(T.self, from: dataAsJson)
+                let dateFormatter = DateFormatter()
+                dateFormatter.dateFormat = ServerConstants.DATE_FORMAT
+                dateFormatter.timeZone = TimeZone(secondsFromGMT: 0)
+                
+                let decoder = JSONDecoder()
+                decoder.dateDecodingStrategy = .formatted(dateFormatter)
+                
+                let dataAsObject = try decoder.decode(T.self, from: dataAsJson)
                 onCompletion(Result.success(data: dataAsObject))
             } catch {
                 onCompletion(Result.error(error: error))

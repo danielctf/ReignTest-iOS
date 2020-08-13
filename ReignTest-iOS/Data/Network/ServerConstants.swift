@@ -12,4 +12,5 @@ class ServerConstants {
     
     static let BASE_URL = "http://hn.algolia.com/api/v1/"
     static let POST_ENDPOINT = "search_by_date?query=ios"
+    static let DATE_FORMAT = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
 }

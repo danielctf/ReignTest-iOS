@@ -13,11 +13,12 @@ class Post: Object, Decodable {
     
     // Realm objects MUST be '@objc dynamic var', they cannot be '@objc dynamic let'
     @objc dynamic var objectID: String
-    @objc dynamic var createdAt: String
+    @objc dynamic var createdAt: Date
     @objc dynamic var storyTitle: String?
     @objc dynamic var title: String?
     @objc dynamic var url: String?
     @objc dynamic var storyUrl: String?
+    @objc dynamic var author: String?
     @objc private dynamic var privateActive: Int = Active.YES.rawValue
     
     var active: Active {
@@ -34,7 +35,7 @@ class Post: Object, Decodable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case objectID, title, url
+        case objectID, title, url, author
         case createdAt = "created_at"
         case storyTitle = "story_title"
         case storyUrl = "story_url"
