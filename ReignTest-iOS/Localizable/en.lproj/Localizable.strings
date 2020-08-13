@@ -8,3 +8,8 @@
 
 "no_title" = "No title";
 "no_author" = "No author";
+"posts" = "Posts";
+"post" = "Post";
+"error" = "Error";
+"post_not_available" = "This post is not available";
+"ok" = "Ok";
