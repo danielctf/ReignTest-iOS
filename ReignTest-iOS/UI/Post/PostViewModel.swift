@@ -32,7 +32,8 @@ class PostViewModel {
     func refreshPosts() {
         loading.onNext(true)
         refreshPostsUseCase.execute() { [weak self] in
-            self?.loading.onNext(false)
+            guard let self = self else { return }
+            self.loading.onNext(false)
         }
     }
 
