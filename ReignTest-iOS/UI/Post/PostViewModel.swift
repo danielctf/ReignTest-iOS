@@ -11,6 +11,8 @@ import RxSwift
 
 class PostViewModel {
     
+    let loading = PublishSubject<Bool>()
+    
     private let getPostsUseCase: GetPostsUseCase
     private let refreshPostsUseCase: RefreshPostsUseCase
     
@@ -25,7 +27,11 @@ class PostViewModel {
     }
     
     func refreshPosts() {
-        refreshPostsUseCase.execute()
+        loading.onNext(true)
+        refreshPostsUseCase.execute() { [weak self] in
+            guard let self = self else { return }
+            self.loading.onNext(false)
+        }
     }
 
     func getPosts() -> Observable<[Post]> {

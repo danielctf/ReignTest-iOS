@@ -22,7 +22,7 @@ class PostRepository: PostRepositoryProtocol {
         self.local = local
     }
     
-    func refreshPosts() {
+    func refreshPosts(onCompletion: @escaping () -> Void) {
         remote.getPosts { [weak self] result in
             guard let self = self else { return }
             switch result {
@@ -31,6 +31,7 @@ class PostRepository: PostRepositoryProtocol {
             case .error(_):
                 break
             }
+            onCompletion()
         }
     }
     
