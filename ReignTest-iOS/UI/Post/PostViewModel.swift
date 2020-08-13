@@ -15,13 +15,16 @@ class PostViewModel {
     
     private let getPostsUseCase: GetPostsUseCase
     private let refreshPostsUseCase: RefreshPostsUseCase
+    private let deletePostUseCase: DeletePostUseCase
     
     init(
         getPostsUseCase: GetPostsUseCase = GetPostsUseCase(),
-        refreshPostsUseCase: RefreshPostsUseCase = RefreshPostsUseCase()
+        refreshPostsUseCase: RefreshPostsUseCase = RefreshPostsUseCase(),
+        deletePostUseCase: DeletePostUseCase = DeletePostUseCase()
     ) {
         self.getPostsUseCase = getPostsUseCase
         self.refreshPostsUseCase = refreshPostsUseCase
+        self.deletePostUseCase = deletePostUseCase
         
         refreshPosts()
     }
@@ -36,5 +39,9 @@ class PostViewModel {
 
     func getPosts() -> Observable<[Post]> {
         return getPostsUseCase.execute()
+    }
+    
+    func deletePost(post: Post) {
+        deletePostUseCase.execute(params: post)
     }
 }

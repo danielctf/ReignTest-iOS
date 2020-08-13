@@ -8,25 +8,42 @@
 
 import Foundation
 import RxSwift
+import RealmSwift
+import RxRealm
 
 class PostLocalDataSource: PostLocalDataSourceProtocol {
     
-    private let manager: DatabaseManager
+    private let realm: Realm
     
-    init(manager: DatabaseManager = DatabaseManager()) {
-        self.manager = manager
+    init(realm: Realm = try! Realm()) {
+        self.realm = realm
     }
     
     func insertPosts(posts: [Post]) {
-        manager.writeObjects(items: posts)
+        try! realm.write {
+            posts.forEach { newPost in
+                if (!existsPost(newPost.objectID)) {
+                    realm.add(newPost)
+                }
+            }
+        }
+    }
+    
+    private func existsPost(_ primaryKey: String) -> Bool {
+        return realm.object(ofType: Post.self, forPrimaryKey: primaryKey) != nil
     }
     
     func getPosts() -> Observable<[Post]> {
-        return manager.getObservableObjects(sortBy: "createdAt")
+        return Observable.array(from: realm.objects(Post.self)
+            .filter("privateActive = 1")
+            .sorted(byKeyPath: "createdAt", ascending: false)
+        )
     }
     
     func deletePost(post: Post) {
-        post.active = Active.NO
-        manager.writeObject(item: post)
+        try! realm.write {
+            post.active = Active.NO
+            realm.add(post, update: .modified)
+        }
     }
 }

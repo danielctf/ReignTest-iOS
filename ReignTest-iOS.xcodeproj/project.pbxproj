@@ -14,7 +14,6 @@
 		E53A7B2924E18F9E00755C43 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E53A7B2724E18F9E00755C43 /* LaunchScreen.storyboard */; };
 		E53A7B3424E18F9E00755C43 /* ReignTest_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B3324E18F9E00755C43 /* ReignTest_iOSTests.swift */; };
 		E53A7B4224E1909800755C43 /* RxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B4124E1909800755C43 /* RxViewController.swift */; };
-		E53A7B4824E190FA00755C43 /* DatabaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B4724E190FA00755C43 /* DatabaseManager.swift */; };
 		E53A7B4A24E190FF00755C43 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B4924E190FF00755C43 /* NetworkManager.swift */; };
 		E53A7B4C24E1910400755C43 /* ServerConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B4B24E1910400755C43 /* ServerConstants.swift */; };
 		E53A7B5324E1911400755C43 /* PostRemoteDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53A7B4F24E1911400755C43 /* PostRemoteDataSource.swift */; };
@@ -73,7 +72,6 @@
 		E53A7B3324E18F9E00755C43 /* ReignTest_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReignTest_iOSTests.swift; sourceTree = "<group>"; };
 		E53A7B3524E18F9E00755C43 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E53A7B4124E1909800755C43 /* RxViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxViewController.swift; sourceTree = "<group>"; };
-		E53A7B4724E190FA00755C43 /* DatabaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseManager.swift; sourceTree = "<group>"; };
 		E53A7B4924E190FF00755C43 /* NetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E53A7B4B24E1910400755C43 /* ServerConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServerConstants.swift; sourceTree = "<group>"; };
 		E53A7B4F24E1911400755C43 /* PostRemoteDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostRemoteDataSource.swift; sourceTree = "<group>"; };
@@ -206,17 +204,8 @@
 			children = (
 				E53A7B4624E190F300755C43 /* Post */,
 				E53A7B4524E190EE00755C43 /* Network */,
-				E53A7B4424E190EA00755C43 /* Database */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		E53A7B4424E190EA00755C43 /* Database */ = {
-			isa = PBXGroup;
-			children = (
-				E53A7B4724E190FA00755C43 /* DatabaseManager.swift */,
-			);
-			path = Database;
 			sourceTree = "<group>";
 		};
 		E53A7B4524E190EE00755C43 /* Network */ = {
@@ -568,7 +557,6 @@
 				E53A7B7924E1917A00755C43 /* TagExtension.swift in Sources */,
 				E53A7B1D24E18F9D00755C43 /* AppDelegate.swift in Sources */,
 				E53A7B8124E1919B00755C43 /* PostViewModel.swift in Sources */,
-				E53A7B4824E190FA00755C43 /* DatabaseManager.swift in Sources */,
 				E53A7B8024E1919B00755C43 /* PostViewController.swift in Sources */,
 				E58748EF24E2300E001FC73C /* StringExtension.swift in Sources */,
 				E53A7B5A24E1911A00755C43 /* PostRepositoryProtocol.swift in Sources */,
