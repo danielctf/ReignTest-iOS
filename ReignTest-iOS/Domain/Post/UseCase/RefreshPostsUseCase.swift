@@ -8,7 +8,7 @@
 
 import Foundation
 
-class RefreshPostsUseCase: CompletionUseCase {
+class RefreshPostsUseCase: RefreshPostsUseCaseProtocol {
     
     private let repository: PostRepositoryProtocol
     

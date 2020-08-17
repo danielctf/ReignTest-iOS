@@ -12,8 +12,8 @@ import RealmSwift
 class Post: Object, Decodable {
     
     // Realm objects MUST be '@objc dynamic var', they cannot be '@objc dynamic let'
-    @objc dynamic var objectID: String
-    @objc dynamic var createdAt: Date
+    @objc dynamic var objectID: String = ""
+    @objc dynamic var createdAt: Date?
     @objc dynamic var storyTitle: String?
     @objc dynamic var title: String?
     @objc dynamic var url: String?
@@ -36,6 +36,18 @@ class Post: Object, Decodable {
     
     override static func primaryKey() -> String? {
         return "objectID"
+    }
+    
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let other = object as? Post else { return false }
+        return objectID == other.objectID &&
+            createdAt == other.createdAt &&
+            storyTitle == other.storyTitle &&
+            title == other.title &&
+            url == other.url &&
+            storyUrl == other.storyUrl &&
+            author == other.author &&
+            active == other.active
     }
     
     enum CodingKeys: String, CodingKey {

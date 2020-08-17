@@ -15,14 +15,14 @@ class PostViewModel {
     let navigateToDetails = PublishSubject<String>()
     let error = PublishSubject<Void>()
     
-    private let getPostsUseCase: GetPostsUseCase
-    private let refreshPostsUseCase: RefreshPostsUseCase
-    private let deletePostUseCase: DeletePostUseCase
+    private let getPostsUseCase: GetPostsUseCaseProtocol
+    private let refreshPostsUseCase: RefreshPostsUseCaseProtocol
+    private let deletePostUseCase: DeletePostUseCaseProtocol
     
     init(
-        getPostsUseCase: GetPostsUseCase = GetPostsUseCase(),
-        refreshPostsUseCase: RefreshPostsUseCase = RefreshPostsUseCase(),
-        deletePostUseCase: DeletePostUseCase = DeletePostUseCase()
+        getPostsUseCase: GetPostsUseCaseProtocol = GetPostsUseCase(),
+        refreshPostsUseCase: RefreshPostsUseCaseProtocol = RefreshPostsUseCase(),
+        deletePostUseCase: DeletePostUseCaseProtocol = DeletePostUseCase()
     ) {
         self.getPostsUseCase = getPostsUseCase
         self.refreshPostsUseCase = refreshPostsUseCase
@@ -44,7 +44,7 @@ class PostViewModel {
     }
     
     func deletePost(post: Post) {
-        deletePostUseCase.execute(params: post)
+        deletePostUseCase.execute(post: post)
     }
     
     func postClicked(post: Post) {

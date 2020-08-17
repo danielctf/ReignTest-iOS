@@ -1,14 +1,12 @@
 //
-//  CompletionUseCase.swift
+//  RefreshPostsUseCaseProtocol.swift
 //  ReignTest-iOS
 //
-//  Created by Daniel Santamaria on 8/11/20.
+//  Created by Daniel Santamaria on 8/14/20.
 //  Copyright © 2020 Reign. All rights reserved.
 //
 
-import Foundation
-
-protocol CompletionUseCase {
+protocol RefreshPostsUseCaseProtocol {
     
     func execute(onCompletion: @escaping () -> Void)
 }

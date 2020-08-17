@@ -15,9 +15,17 @@ class PostTableViewCell: UITableViewCell {
     
     func setPost(post: Post) {
         postTitle.text = post.getTitle() ?? Localizable.NO_TITLE
-        postInformation.text =
-            (post.author ?? Localizable.NO_AUTHOR) +
+        
+        postInformation.text = (post.author ?? Localizable.NO_AUTHOR) +
             " - " +
-            RelativeDateTimeFormatter().localizedString(for: post.createdAt, relativeTo: Date())
+            getElapsedTimeAsString(post.createdAt)
+    }
+    
+    private func getElapsedTimeAsString(_ date: Date?) -> String {
+        if let dateValue = date {
+            return RelativeDateTimeFormatter().localizedString(for: dateValue, relativeTo: Date())
+        } else {
+            return Localizable.NO_ELAPSED_TIME
+        }
     }
 }

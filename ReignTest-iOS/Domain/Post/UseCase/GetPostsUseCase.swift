@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class GetPostsUseCase: ObservableUseCase {
+class GetPostsUseCase: GetPostsUseCaseProtocol {
     
     private let repository: PostRepositoryProtocol
     
