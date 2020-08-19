@@ -17,4 +17,5 @@ class Localizable {
     static let ERROR = "error".localizedString()
     static let POST_NOT_AVAILABLE = "post_not_available".localizedString()
     static let OK = "ok".localizedString()
+    static let NO_ELAPSED_TIME = "no_elapsed_time".localizedString()
 }

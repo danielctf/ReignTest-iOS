@@ -8,7 +8,7 @@
 
 import Foundation
 
-class DeletePostUseCase: UseCase {
+class DeletePostUseCase: DeletePostUseCaseProtocol {
     
     private let repository: PostRepositoryProtocol
     
@@ -16,7 +16,7 @@ class DeletePostUseCase: UseCase {
         self.repository = repository
     }
     
-    func execute(params: Post) {
-        return repository.deletePost(post: params)
+    func execute(post: Post) {
+        return repository.deletePost(post: post)
     }
 }

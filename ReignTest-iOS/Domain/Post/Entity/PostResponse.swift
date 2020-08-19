@@ -11,4 +11,8 @@ import Foundation
 class PostResponse: Decodable {
     
     let hits: [Post]
+    
+    init(hits: [Post]) {
+        self.hits = hits
+    }
 }
